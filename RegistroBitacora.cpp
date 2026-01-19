@@ -23,20 +23,18 @@ int RegistroBitacora::getSegundo() const { return segundo; }
 std::string RegistroBitacora::getIpPuerto() const { return ipPuerto; }
 std::string RegistroBitacora::getMensaje() const { return mensaje; }
 
-// Devuelve la fecha como tupla para facilitar comparaciones
-// Complejidad temporal: O(1)
-// Complejidad espacial: O(1)
+// Devuelve la fecha como tupla para comparar
+// Complejidad: O(1) tiempo, O(1) espacio
 std::tuple<int,int,int,int,int> RegistroBitacora::getFechaClave() const {
     return std::make_tuple(mes, dia, hora, minuto, segundo);
 }
 
-// Convierte el registro al formato original de la bitácora
-// Complejidad temporal: O(n) donde n es la longitud del mensaje
-// Complejidad espacial: O(n)
+// Devuelve el registro en formato original
+// Complejidad: O(n) tiempo, O(n) espacio
 std::string RegistroBitacora::toString() const {
     std::ostringstream salida;
-    salida << mes << " "
-           << dia << " ";
+
+    salida << mes << " " << dia << " ";
 
     if (hora < 10) salida << "0";
     salida << hora << ":";
@@ -51,20 +49,20 @@ std::string RegistroBitacora::toString() const {
     return salida.str();
 }
 
-// Operador < para ordenar por fecha
-// Complejidad temporal: O(1)
+// Operador < para ordenamiento por fecha
+// Complejidad: O(1) tiempo, O(1) espacio
 bool RegistroBitacora::operator<(const RegistroBitacora& other) const {
     return getFechaClave() < other.getFechaClave();
 }
 
 // Operador <= para búsquedas
-// Complejidad temporal: O(1)
+// Complejidad: O(1) tiempo, O(1) espacio
 bool RegistroBitacora::operator<=(const RegistroBitacora& other) const {
     return getFechaClave() <= other.getFechaClave();
 }
 
-// Convierte el mes de texto a número
-// Complejidad temporal: O(1)
+// Convierte mes de texto a número
+// Complejidad: O(1) tiempo, O(1) espacio
 int RegistroBitacora::mesATextoANumero(const std::string& mesTexto) {
     if (mesTexto == "Jan") return 1;
     if (mesTexto == "Feb") return 2;
@@ -80,4 +78,3 @@ int RegistroBitacora::mesATextoANumero(const std::string& mesTexto) {
     if (mesTexto == "Dec") return 12;
     return 0;
 }
-
