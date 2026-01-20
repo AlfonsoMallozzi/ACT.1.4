@@ -1,5 +1,4 @@
 #include "RegistroBitacora.h"
-
 #include <sstream>
 
 // Constructor por defecto
@@ -29,12 +28,12 @@ std::tuple<int,int,int,int,int> RegistroBitacora::getFechaClave() const {
     return std::make_tuple(mes, dia, hora, minuto, segundo);
 }
 
-// Devuelve el registro en formato original
+// Devuelve el registro en formato original (MES EN TEXTO)
 // Complejidad: O(n) tiempo, O(n) espacio
 std::string RegistroBitacora::toString() const {
     std::ostringstream salida;
 
-    salida << mes << " " << dia << " ";
+    salida << mesNumeroATexto(mes) << " " << dia << " ";
 
     if (hora < 10) salida << "0";
     salida << hora << ":";
@@ -77,4 +76,22 @@ int RegistroBitacora::mesATextoANumero(const std::string& mesTexto) {
     if (mesTexto == "Nov") return 11;
     if (mesTexto == "Dec") return 12;
     return 0;
+}
+
+// Convierte mes de número a texto
+// Complejidad: O(1) tiempo, O(1) espacio
+std::string RegistroBitacora::mesNumeroATexto(int mes) {
+    if (mes == 1) return "Jan";
+    if (mes == 2) return "Feb";
+    if (mes == 3) return "Mar";
+    if (mes == 4) return "Apr";
+    if (mes == 5) return "May";
+    if (mes == 6) return "Jun";
+    if (mes == 7) return "Jul";
+    if (mes == 8) return "Aug";
+    if (mes == 9) return "Sep";
+    if (mes == 10) return "Oct";
+    if (mes == 11) return "Nov";
+    if (mes == 12) return "Dec";
+    return "???";
 }
