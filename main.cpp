@@ -4,7 +4,7 @@
  * - Alfonso José Morales Mallozzi | A00841550
  *
  * Compilar:
- *   g++ -std=c++17 -Wall -o act1_4 main.cpp RegistroBitacora.cpp
+ *   g++ -std=c++17 -Wall -o act1_4 main.cpp RegistroBitacora.cpp Sorts.cpp
  */
 
 #include <fstream>
