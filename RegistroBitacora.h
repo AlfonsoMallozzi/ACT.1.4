@@ -50,9 +50,10 @@ public:
     bool operator<(const RegistroBitacora& other) const;
     bool operator<=(const RegistroBitacora& other) const;
 
-    // Utilidad para convertir mes de texto a número (Jan -> 1)
+    // Utilidades para conversión de mes
     // Complejidad: O(1) tiempo, O(1) espacio
     static int mesATextoANumero(const std::string& mesTexto);
+    static std::string mesNumeroATexto(int mes);
 };
 
 #endif
