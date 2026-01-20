@@ -11,6 +11,19 @@ public:
     static void bubbleSort(std::vector<RegistroBitacora>& datos,
                            long long& comparaciones,
                            long long& swaps);
+
+    // Ordenamiento QuickSort
+    // Complejidad: O(n log n) tiempo promedio, O(log n) espacio
+    static void quickSort(std::vector<RegistroBitacora>& datos,
+                          int low, int high,
+                          long long& comparaciones,
+                          long long& swaps);
+
+private:
+    static int partition(std::vector<RegistroBitacora>& datos,
+                         int low, int high,
+                         long long& comparaciones,
+                         long long& swaps);
 };
 
 #endif
